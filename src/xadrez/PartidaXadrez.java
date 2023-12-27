@@ -39,9 +39,19 @@ public class PartidaXadrez {
 	
 	//responsavel por iniciar a partida de xadrez colocando as peças no tabuleiro
 	private void iniciarSetup() {
-		umaNovaPeca('b', 6, new Torre(tabuleiro, Color.WHITE)); //eu informo a posição da coluna e da linha e informo qual peça e cor vai ocupar aquele lugar
-		umaNovaPeca('e', 8, new Rei(tabuleiro, Color.BLACK));
-		umaNovaPeca('e', 1, new Rei(tabuleiro, Color.WHITE));
+		umaNovaPeca('c', 1, new Torre(tabuleiro, Color.WHITE));
+		umaNovaPeca('c', 2, new Torre(tabuleiro, Color.WHITE));
+		umaNovaPeca('d', 2, new Torre(tabuleiro, Color.WHITE));
+		umaNovaPeca('e', 2, new Torre(tabuleiro, Color.WHITE));
+		umaNovaPeca('e', 1, new Torre(tabuleiro, Color.WHITE));
+		umaNovaPeca('d', 1, new Rei(tabuleiro, Color.WHITE));
+
+		umaNovaPeca('c', 7, new Torre(tabuleiro, Color.BLACK));
+		umaNovaPeca('c', 8, new Torre(tabuleiro, Color.BLACK));
+		umaNovaPeca('d', 7, new Torre(tabuleiro, Color.BLACK));
+		umaNovaPeca('e', 7, new Torre(tabuleiro, Color.BLACK));
+		umaNovaPeca('e', 8, new Torre(tabuleiro, Color.BLACK));
+		umaNovaPeca('d', 8, new Rei(tabuleiro, Color.BLACK));
 	}
 	
 	
