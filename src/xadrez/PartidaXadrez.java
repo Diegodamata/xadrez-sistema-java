@@ -1,6 +1,5 @@
 package xadrez;
 
-import tabuleiro_jogo.Posicao;
 import tabuleiro_jogo.Tabuleiro;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
@@ -33,11 +32,16 @@ public class PartidaXadrez {
 		return mat;
 	}
 	
+	//metodo para mostrar as cordenadas mostrando as posições do xadrez
+	public void umaNovaPeca(char coluna, int linha, XadrezPeca peca) {
+		tabuleiro.lugarPeca(peca, new XadrezPosition(coluna, linha).toPosition());
+	}
+	
 	//responsavel por iniciar a partida de xadrez colocando as peças no tabuleiro
 	private void iniciarSetup() {
-		tabuleiro.lugarPeca(new Torre(tabuleiro, Color.WHITE), new Posicao(2, 1));
-		tabuleiro.lugarPeca(new Rei(tabuleiro, Color.BLACK), new Posicao(0, 4));
-		tabuleiro.lugarPeca(new Rei(tabuleiro, Color.WHITE), new Posicao(7, 4));
+		umaNovaPeca('b', 6, new Torre(tabuleiro, Color.WHITE)); //eu informo a posição da coluna e da linha e informo qual peça e cor vai ocupar aquele lugar
+		umaNovaPeca('e', 8, new Rei(tabuleiro, Color.BLACK));
+		umaNovaPeca('e', 1, new Rei(tabuleiro, Color.WHITE));
 	}
 	
 	
