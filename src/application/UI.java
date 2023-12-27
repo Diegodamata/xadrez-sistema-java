@@ -1,7 +1,11 @@
 package application;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import xadrez.Color;
 import xadrez.XadrezPeca;
+import xadrez.XadrezPosition;
 
 public class UI { // UI user interface
 
@@ -28,6 +32,19 @@ public class UI { // UI user interface
 	public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
+	
+	
+	public static XadrezPosition lerPositionXadrez(Scanner sc) {
+		try {
+			String s = sc.nextLine(); //eu li a posição da peça no tabuleiro, ex. a1 a2 b1 b2...
+			char coluna = s.charAt(0); //criei uma variavel do tipo char e atribui a ela s primeira posição da variavel s 
+			int linha = Integer.parseInt(s.substring(1)); //variavel linha, vai ser atribuida a ela a variavel s a partar da posição 1
+			return new XadrezPosition(coluna, linha);
+		}
+		catch(RuntimeException e) {
+			throw new InputMismatchException("Erro criando o tabuleiro: é necessário que hàja 1 linha e 1 coluna"); //exceção de erro de entrada de dados
+		}
+	}
 
 	// metodo para mostrar o tabuleiro
 	// static pois é um metodo estatico

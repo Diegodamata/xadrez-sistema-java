@@ -54,6 +54,19 @@ public class Tabuleiro {
 		peca.posicao = posicao; //na classe pessa na posição sera atribuido o valor que eu informar como posição, como é protected e esta no mesmo pacote pode acessar normal
 	}
 	
+	public Peca removePeca(Posicao posicao) {
+		if(!positionExiste(posicao)) { //se a posição não existe vou lançar outra exception
+			throw new TabuleiroException("Posição não tem no tabuleiro");
+		}
+		if (peca(posicao) == null) {
+			return null;
+		}
+		Peca aux = peca(posicao); //criei uma variavel do tipo Peca e atribui nela a posição da peca no tabuleiro 
+		aux.posicao = null; //e falei que agora a posição recebe nulla foi removida
+		pecas[posicao.getLinha()][posicao.getColuna()] = null; //digo que na matriz de pecas na posição que é pra remover vai receber nullo
+		return aux;
+	}
+	
 	//metodo auxiliar para retornar se esta dentro da posição do tabuleiro
 	private boolean positionExiste(int linha, int coluna) {
 		return linha >= 0 && linha < linhas && coluna >= 0 && coluna < colunas;
@@ -70,6 +83,8 @@ public class Tabuleiro {
 		}
 		return peca(posicao) != null;
 	}
+	
+	 
 	
 	
 	

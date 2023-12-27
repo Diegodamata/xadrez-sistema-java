@@ -1,5 +1,7 @@
 package xadrez;
 
+import tabuleiro_jogo.Peca;
+import tabuleiro_jogo.Posicao;
 import tabuleiro_jogo.Tabuleiro;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
@@ -30,6 +32,29 @@ public class PartidaXadrez {
 			}
 		}
 		return mat;
+	}
+	
+	public XadrezPeca movimentoDePeca(XadrezPosition originPosition, XadrezPosition destinoPosition) {
+		//converti as posições para Posição
+		Posicao origin = originPosition.toPosition();
+		Posicao destino = destinoPosition.toPosition();
+		//verificar se a posição de origem havia uma peça
+		validateOriginPosiçao(origin);
+		Peca capturaPeca = fazerMover(origin, destino);
+		return (XadrezPeca) capturaPeca;
+	}
+	
+	private Peca fazerMover(Posicao origin, Posicao destino) {
+		Peca p = tabuleiro.removePeca(origin); //variavel recebendo a ramoçao da peça de origem 
+		Peca capturada = tabuleiro.removePeca(destino); //variavel recebendo a posição de destino
+		tabuleiro.lugarPeca(p, destino); //e no tabuleiro a peça de origem vai receber o destino
+		return capturada;
+	}
+	
+	private void validateOriginPosiçao(Posicao posicao) {
+		if (!tabuleiro.positionExiste(posicao)) {
+			throw new XadrezException("Não hà posição de origem."); 
+		}
 	}
 	
 	//metodo para mostrar as cordenadas mostrando as posições do xadrez
