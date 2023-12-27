@@ -1,6 +1,9 @@
 package xadrez;
 
+import tabuleiro_jogo.Posicao;
 import tabuleiro_jogo.Tabuleiro;
+import xadrez.pecas.Rei;
+import xadrez.pecas.Torre;
 
 public class PartidaXadrez {
 
@@ -10,6 +13,7 @@ public class PartidaXadrez {
 	//cunstrutor da partida de xadrez
 	public PartidaXadrez() {
 		tabuleiro = new Tabuleiro(8, 8); //quem tem que sber a dimensão de um tabuleiro de xadrez é a classe partida de xadrez, aqui informo que ela é 8 por 8
+		iniciarSetup(); //preciso chamar o metodo para iniciar a partida no constructor da partida
 	}
 	 
 	//metodo do tipo XadrezPeca
@@ -28,4 +32,23 @@ public class PartidaXadrez {
 		}
 		return mat;
 	}
+	
+	//responsavel por iniciar a partida de xadrez colocando as peças no tabuleiro
+	private void iniciarSetup() {
+		tabuleiro.lugarPeca(new Torre(tabuleiro, Color.WHITE), new Posicao(2, 1));
+		tabuleiro.lugarPeca(new Rei(tabuleiro, Color.BLACK), new Posicao(0, 4));
+		tabuleiro.lugarPeca(new Rei(tabuleiro, Color.WHITE), new Posicao(7, 4));
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

@@ -40,4 +40,12 @@ public class Tabuleiro {
 		return pecas[posicao.getLinha()][posicao.getColuna()]; //esse metodo vai retornar a posição da peça
 	}	
 	
+	//metodo para saber o lugar que está a peça
+	public void lugarPeca(Peca peca, Posicao posicao) {
+		//na matriz na posição informada vai receber a peça
+		pecas[posicao.getLinha()][posicao.getColuna()] = peca; //percorendo a matriz pecas e na posição da linha e da coluna, vai receber a peça
+		//a posição não vai ser mais nulla 
+		peca.posicao = posicao; //na classe pessa na posição sera atribuido o valor que eu informar como posição, como é protected e esta no mesmo pacote pode acessar normal
+	}
+	
 }
