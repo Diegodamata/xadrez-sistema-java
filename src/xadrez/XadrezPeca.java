@@ -3,7 +3,10 @@ package xadrez;
 import tabuleiro_jogo.Peca;
 import tabuleiro_jogo.Tabuleiro;
 
-public class XadrezPeca extends Peca { // a classe XadrezPeça extends da classe Peça
+//essa classe é uma subclasse da clsse Peca pois essa classe tambem é muiro generica 
+//para fazer a operação de movimento de cada peça, a classe que é para fazer o movimento é a propria classe das peças
+//entao essa classe tambem precisa ser abstrata
+public abstract class XadrezPeca extends Peca { // a classe XadrezPeça extends da classe Peça
 
 	private Color color;
 

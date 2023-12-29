@@ -55,6 +55,10 @@ public class PartidaXadrez {
 		if (!tabuleiro.temPeca(posicao)) {
 			throw new XadrezException("Nao ha posicao de origem."); 
 		}
+		//verificar se existe movimento possiveis para a peça
+		if (!tabuleiro.peca(posicao).existeAlgumMoviPossivel()) {
+			throw new XadrezException("Nao existe movimentos possiveis para a peca");
+		}
 	}
 	
 	//metodo para mostrar as cordenadas mostrando as posições do xadrez

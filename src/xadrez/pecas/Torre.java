@@ -15,4 +15,10 @@ public class Torre extends XadrezPeca{ //classe torre extends da classe XadrezPe
 		return "T";
 	}
 	
+	@Override
+	public boolean[][] possiveisMovimentos() {
+		boolean[][] mat = new boolean[getTabuleiro().getLinhas()][getTabuleiro().getColunas()];
+		return mat;
+	}
+	
 }

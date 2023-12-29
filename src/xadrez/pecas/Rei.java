@@ -14,4 +14,10 @@ public class Rei extends XadrezPeca {
 	public String toString() { //vai retornar a letra R de Rei
 		return "R";
 	}
+
+	@Override
+	public boolean[][] possiveisMovimentos() {
+		boolean[][] mat = new boolean[getTabuleiro().getLinhas()][getTabuleiro().getColunas()];
+		return mat;
+	}
 }
