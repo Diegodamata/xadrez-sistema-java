@@ -10,7 +10,7 @@ public class XadrezPosition {
 	public XadrezPosition(char coluna, int linha) {
 		//se a coluna for menor ou maior que o especificado e a linha tambem vai ser lançado uma exception
 		if(coluna < 'a' || coluna > 'h' || linha < 1 || linha > 8) { 
-			throw new XadrezException("Erro instanciando posição do xadrez: Valores validos são a1 até h8.");
+			throw new XadrezException("Erro instanciando posicao do xadrez: Valores validos são a1 até h8. ");
 		}
 		this.coluna = coluna;
 		this.linha = linha;
@@ -26,6 +26,8 @@ public class XadrezPosition {
 	}
 
 	//metodo para saber a posição da peça no tabuleiro
+	//vai converter o tipo de leitura arrey para tabuleiro
+	//exe a1 b1 b2...
 	protected Posicao toPosition() {
 		return new Posicao(8 - linha, coluna - 'a');
 	}

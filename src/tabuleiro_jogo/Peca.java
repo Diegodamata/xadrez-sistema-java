@@ -8,6 +8,7 @@ public class Peca {
 	//constructor com o argumento tabuleiro, a posição precisa iniciar vazia
 	public Peca(Tabuleiro tabuleiro) {
 		this.tabuleiro = tabuleiro;
+		posicao = null;
 	}
 
 	//apenas o get pois o tabuleiro não pode ser alterado

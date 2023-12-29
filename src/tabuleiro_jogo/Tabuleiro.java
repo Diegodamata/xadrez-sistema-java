@@ -11,7 +11,7 @@ public class Tabuleiro {
 	public Tabuleiro(int linhas, int colunas) {
 		//se a quantidade de linhas e colunas for menor do que 1 não faz sentido criar o tabuleiro, entao vou lançar uma exception
 		if (linhas < 1 || colunas < 1) {
-			throw new TabuleiroException("Erro criando o tabuleiro: é necessário que hàja 1 linha e 1 coluna");
+			throw new TabuleiroException("Erro criando o tabuleiro: e necessario que haja 1 linha e 1 coluna");
 		}
 		this.linhas = linhas;
 		this.colunas = colunas;
@@ -30,7 +30,7 @@ public class Tabuleiro {
 	//um metodo do tipo peça para retornar as linhas e colunas
 	public Peca peca(int linha, int coluna) {
 		if(!positionExiste(linha, coluna)) { //se a posição não existe vou lançar outra exception
-			throw new TabuleiroException("Posição não tem no tabuleiro");
+			throw new TabuleiroException("Posicao nao tem no tabuleiro");
 		}
 		return pecas[linha][coluna];
 	}
@@ -38,7 +38,7 @@ public class Tabuleiro {
 	//e uma sobrecarga para retornar a posição
 	public Peca peca(Posicao posicao) {
 		if(!positionExiste(posicao)) { //se a posição não existe vou lançar outra exception
-			throw new TabuleiroException("Posição não tem no tabuleiro");
+			throw new TabuleiroException("Posicao não tem no tabuleiro");
 		}
 		return pecas[posicao.getLinha()][posicao.getColuna()]; //esse metodo vai retornar a posição da peça
 	}	
@@ -46,7 +46,7 @@ public class Tabuleiro {
 	//metodo para saber o lugar que está a peça
 	public void lugarPeca(Peca peca, Posicao posicao) {
 		if (temPeca(posicao)) {
-			throw new TabuleiroException("Já existe peça nessa posição " + posicao);
+			throw new TabuleiroException("Ja existe peca nessa posicao " + posicao);
 		}
 		//na matriz na posição informada vai receber a peça
 		pecas[posicao.getLinha()][posicao.getColuna()] = peca; //percorendo a matriz pecas e na posição da linha e da coluna, vai receber a peça
@@ -56,7 +56,7 @@ public class Tabuleiro {
 	
 	public Peca removePeca(Posicao posicao) {
 		if(!positionExiste(posicao)) { //se a posição não existe vou lançar outra exception
-			throw new TabuleiroException("Posição não tem no tabuleiro");
+			throw new TabuleiroException("Posicao nao tem no tabuleiro");
 		}
 		if (peca(posicao) == null) {
 			return null;
@@ -79,7 +79,7 @@ public class Tabuleiro {
 	//metodo para saber se tem alguma peça em uma determinada posição do tabuleiro 
 	public boolean temPeca(Posicao posicao) {
 		if(!positionExiste(posicao)) { //se a posição não existe vou lançar outra exception
-			throw new TabuleiroException("Posição não tem no tabuleiro");
+			throw new TabuleiroException("Posicao nao tem no tabuleiro");
 		}
 		return peca(posicao) != null;
 	}

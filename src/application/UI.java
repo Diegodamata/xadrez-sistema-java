@@ -33,6 +33,13 @@ public class UI { // UI user interface
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 	
+	// https://stackoverflow.com/questions/2979383/java-clear-the-console
+	//metodo para limpar a tela
+	public static void clearScreen() { 
+		 System.out.print("\033[H\033[2J"); 
+		 System.out.flush(); 
+	} 
+
 	
 	public static XadrezPosition lerPositionXadrez(Scanner sc) {
 		try {
@@ -42,9 +49,9 @@ public class UI { // UI user interface
 			return new XadrezPosition(coluna, linha);
 		}
 		catch(RuntimeException e) {
-			throw new InputMismatchException("Erro criando o tabuleiro: é necessário que hàja 1 linha e 1 coluna"); //exceção de erro de entrada de dados
+			throw new InputMismatchException("Erro instanciando posicao do xadrez: Valores validos sao a1 ate h8."); //exceção de erro de entrada de dados
 		}
-	}
+	} 
 
 	// metodo para mostrar o tabuleiro
 	// static pois é um metodo estatico

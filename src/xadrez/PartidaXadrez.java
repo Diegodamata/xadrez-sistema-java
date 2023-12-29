@@ -52,8 +52,8 @@ public class PartidaXadrez {
 	}
 	
 	private void validateOriginPosiçao(Posicao posicao) {
-		if (!tabuleiro.positionExiste(posicao)) {
-			throw new XadrezException("Não hà posição de origem."); 
+		if (!tabuleiro.temPeca(posicao)) {
+			throw new XadrezException("Nao ha posicao de origem."); 
 		}
 	}
 	
@@ -77,17 +77,5 @@ public class PartidaXadrez {
 		umaNovaPeca('e', 7, new Torre(tabuleiro, Color.BLACK));
 		umaNovaPeca('e', 8, new Torre(tabuleiro, Color.BLACK));
 		umaNovaPeca('d', 8, new Rei(tabuleiro, Color.BLACK));
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}	
 }
